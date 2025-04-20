@@ -16,12 +16,26 @@ Drache::Drache()
 
 void Drache::drachenflugHinzufuegen()
 {
-
+    Drachenflug* p_flug = new Drachenflug();
+    this->drachenflugListe.push_back(p_flug);
 }
 
 void Drache::passagierBuchen()
 {
+    int flugnummer;
 
+    std::cout << "Flugnummer eingeben: ";
+    std::cin >> flugnummer;
+
+    for (auto p_drachenflug : this->drachenflugListe)
+    {
+        if (p_drachenflug->getFlugNummer() == flugnummer)
+        {
+            p_drachenflug->addPassagier();
+            return;
+        }
+    }
+    std::cout << "Drachenflug existiert nicht." << std::endl;
 }
 
 void Drache::dracheAnzeigen()

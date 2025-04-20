@@ -18,12 +18,22 @@ Drachenflug::Drachenflug()
 
 void Drachenflug::flugDatenAnzeigen()
 {
+    std::cout << "[Drachenflug]" << std::endl;
+    std::cout << "Flugnummer: " << this->getFlugNummer() << " \nZiel: " << this->ziel << " \n Entfernung: " << this->entfernung << "\nLadung: " << this->ladung << std::endl;
 
+    std::cout << "[Passagiere]" << std::endl;
+    for (auto passagier : this->passagierListe)
+        std::cout << "Name des Passagiers: " << passagier << std::endl;
 }
 
 void Drachenflug::addPassagier()
 {
+    std::string passagier;
+    std::cout << "Name des Passagiers eingeben:";
+    std::cin >> passagier;
 
+    this->passagierListe.push_back(passagier);
+    std::cout << "Passagier wurde zum Flug hinzugefügt." << std::endl;
 }
 
 double Drachenflug::getReisedauer() const
