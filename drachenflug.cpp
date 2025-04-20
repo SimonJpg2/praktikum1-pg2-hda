@@ -1,6 +1,20 @@
 #include "drachenflug.h"
 
-Drachenflug::Drachenflug() {}
+#include <iostream>
+
+Drachenflug::Drachenflug()
+{
+    std::cout << "Flugnummmer? ";
+    std::cin >> this->flugNummer;
+
+    std::cout << "Ziel? ";
+    std::getline(std::cin, this->ziel);
+
+    std::cout << "Entfernung der Reise angeben: ";
+    std::cin >> this->entfernung;
+
+    std::cout << "Die Drachenreise wurde erfolgreich erstellt." << std::endl;
+}
 
 void Drachenflug::flugDatenAnzeigen()
 {
