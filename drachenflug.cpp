@@ -1,6 +1,7 @@
 #include "drachenflug.h"
 
 #include <iostream>
+#include <limits>
 
 Drachenflug::Drachenflug()
 {
@@ -8,6 +9,7 @@ Drachenflug::Drachenflug()
     std::cin >> this->flugNummer;
 
     std::cout << "Ziel? ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Puffer leeren, da sonst nächstes getLine() übersprungen wird.
     std::getline(std::cin, this->ziel);
 
     std::cout << "Entfernung der Reise angeben: ";
@@ -18,8 +20,12 @@ Drachenflug::Drachenflug()
 
 void Drachenflug::flugDatenAnzeigen()
 {
-    std::cout << "[Drachenflug]" << std::endl;
-    std::cout << "Flugnummer: " << this->getFlugNummer() << " \nZiel: " << this->ziel << " \n Entfernung: " << this->entfernung << "\nLadung: " << this->ladung << std::endl;
+    std::cout << "[Drachenflug]\n\n";
+    std::cout << "Flugnummer: " << this->getFlugNummer()
+              << "\nZiel: " << this->ziel
+              << "\nEntfernung: " << this->entfernung
+              << "\nLadung: " << this->ladung
+              << std::endl;
 
     std::cout << "[Passagiere]" << std::endl;
     for (auto passagier : this->passagierListe)
@@ -29,11 +35,11 @@ void Drachenflug::flugDatenAnzeigen()
 void Drachenflug::addPassagier()
 {
     std::string passagier;
-    std::cout << "Name des Passagiers eingeben:";
+    std::cout << "Name des Passagiers eingeben: ";
     std::cin >> passagier;
 
     this->passagierListe.push_back(passagier);
-    std::cout << "Passagier wurde zum Flug hinzugefügt." << std::endl;
+    std::cout << "Passagier mit dem Namen " << passagier << " wurde zum Flug hinzugefuegt." << std::endl;
 }
 
 double Drachenflug::getReisedauer() const

@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
 
 Filmstudio::Filmstudio() {}
 
@@ -9,8 +10,8 @@ void Filmstudio::dialog() {
 
     char eingabe;
 
-    while (true){
-
+    while (true)
+    {
         std::cout << std::endl;
         std::cout << "1: Drache hinzufuegen" << std::endl;
         std::cout << "2: Drachenflug hinzufuegen" << std::endl;
@@ -19,46 +20,43 @@ void Filmstudio::dialog() {
         std::cout << "0: Programm beenden" << std::endl;
 
         std::cin >> eingabe;
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Puffer leeren, da sonst nächstes getLine() übersprungen wird.
 
-        switch(eingabe){
-        case '1':{         // Aufgabe 1e: Drache hinzufuegen
-            Drache* p_drache = new Drache();
-            this->drachenListe.push_back(p_drache);
-        } break;
+        switch (eingabe){
+            case '1': {         // Aufgabe 1e: Drache hinzufuegen
+                Drache* p_drache = new Drache();
+                this->drachenListe.push_back(p_drache);
+            } break;
 
-        case '2':{         // Aufgabe 1f: Drachenflug hinzufuegen
-            Drache* p_drache = sucheDrache();
+            case '2': {         // Aufgabe 1f: Drachenflug hinzufuegen
+                Drache* p_drache = sucheDrache();
 
-            if(p_drache != nullptr)
-                p_drache->drachenflugHinzufuegen();
-        } break;
+                if (p_drache != nullptr)
+                    p_drache->drachenflugHinzufuegen();
+            } break;
 
-        case '3':{         // Aufgabe 1g: Passagier buchen
-            Drache* p_drache = sucheDrache();
+            case '3':{         // Aufgabe 1g: Passagier buchen
+                Drache* p_drache = sucheDrache();
 
-            if(p_drache != nullptr)
-                p_drache->passagierBuchen();
-        } break;
+                if (p_drache != nullptr)
+                    p_drache->passagierBuchen();
+            } break;
 
-        case '4':{         // Aufgabe 1h: Alle Drachen anzeigen
-            if(drachenListe.size()==0)
-                std::cout << "Drachenliste ist noch leer" << std::endl;
-            else
-            {
-                for(auto p_drache : drachenListe)
+            case '4':{         // Aufgabe 1h: Alle Drachen anzeigen
+                if (drachenListe.size()==0)
+                    std::cout << "Drachenliste ist noch leer" << std::endl;
+                else
                 {
-                    p_drache->dracheAnzeigen();
-                    std::cout << "------------------------------------------------------------------" << std::endl;
+                    for (auto p_drache : drachenListe)
+                    {
+                        p_drache->dracheAnzeigen();
+                        std::cout << "------------------------------------------------------------------" << std::endl;
+                    }
                 }
-            }
-        } break;
+            } break;
 
-        case '0':{         // Programm beenden
-            return;
-        }
-
-        default:
-            std::cout << "Ungueltige Eingabe" << std::endl;
+            case '0': return;
+            default: std::cout << "Ungueltige Eingabe" << std::endl;
         }
     }
 }
@@ -67,11 +65,12 @@ Drache *Filmstudio::sucheDrache()
 {
     std::string name;
     std::cout << "Name des zu suchenden Drachen eingeben: ";
-    std::cin >> name;
+    std::getline(std::cin, name);
 
     for (const auto p_drache : this->drachenListe)
         if (p_drache->getDrachenName() == name)
             return p_drache;
+
     std::cout << "Der Drache mit dem Namen " << name << " konnte nicht gefunden werden." << std::endl;
     return nullptr;
 }
