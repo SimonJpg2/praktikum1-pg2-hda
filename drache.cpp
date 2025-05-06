@@ -41,6 +41,20 @@ Drache::Drache()
     std::cout << "\n\nName des Drachen: " << this->drachenName << " \nMein Player: " << this->meinPlayer << std::endl;
 }
 
+Drache::Drache(const nlohmann::json &json)
+{
+    this->drachenName = json["drachenName"];
+    this->meinPlayer = json["meinPlayer"];
+    this->geschwindigkeit = json["geschwindigkeit"];
+    this->ausdauer = json["ausdauer"];
+    this->erholung = json["erholung"];
+    this->drachenPreis = json["drachenPreis"];
+    this->drachenArt = json["drachenArt"];
+
+    for (auto& f : json["drachenflugListe"])
+        this->drachenflugListe.push_back(new Drachenflug(f));
+}
+
 Drache::~Drache()
 {
     for (auto p_drachenflug : this->drachenflugListe)

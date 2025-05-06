@@ -5,6 +5,7 @@
 #include <vector>
 
 #include "drachenflug.h"
+#include "json.hpp"
 
 class Drache
 {
@@ -20,6 +21,7 @@ protected:
     std::vector<Drachenflug*> drachenflugListe;
 public:
     Drache();
+    Drache(const nlohmann::json& json);
     virtual ~Drache();
     void drachenflugHinzufuegen();
     void passagierBuchen();

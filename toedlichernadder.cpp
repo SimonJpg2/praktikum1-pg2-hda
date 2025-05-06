@@ -8,6 +8,11 @@ ToedlicherNadder::ToedlicherNadder() : Drache()
     this->drachenPreis = 3750.0;
 }
 
+ToedlicherNadder::ToedlicherNadder(const nlohmann::json &j) : Drache(j)
+{
+
+}
+
 ToedlicherNadder::~ToedlicherNadder()
 {
 

@@ -8,6 +8,11 @@ Nachtschatten::Nachtschatten() : Drache()
     this->drachenPreis = 5100.0;
 }
 
+Nachtschatten::Nachtschatten(const nlohmann::json &j) : Drache(j)
+{
+
+}
+
 Nachtschatten::~Nachtschatten()
 {
 

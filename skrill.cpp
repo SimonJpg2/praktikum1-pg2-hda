@@ -8,6 +8,11 @@ Skrill::Skrill() : Drache()
     this->drachenPreis = 4200.0;
 }
 
+Skrill::Skrill(const nlohmann::json &j) : Drache(j)
+{
+
+}
+
 Skrill::~Skrill()
 {
 

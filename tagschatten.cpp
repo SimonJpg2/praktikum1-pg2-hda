@@ -8,6 +8,11 @@ Tagschatten::Tagschatten() : Drache()
     this->drachenPreis = 3500.0;
 }
 
+Tagschatten::Tagschatten(const nlohmann::json &j) : Drache(j)
+{
+
+}
+
 Tagschatten::~Tagschatten()
 {
 

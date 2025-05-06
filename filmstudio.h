@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "drache.h"
+#include "json.hpp"
 
 class Filmstudio
 {
@@ -15,6 +16,7 @@ public:
     void dialog();
     Drache* sucheDrache();
     Drache* auswahlDrachenArt();
+    void einlesenJSON(const std::string &filename);
 };
 
 #endif // FILMSTUDIO_H

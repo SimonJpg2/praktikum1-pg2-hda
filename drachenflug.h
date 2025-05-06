@@ -1,6 +1,8 @@
 #ifndef DRACHENFLUG_H
 #define DRACHENFLUG_H
 
+#include "json.hpp"
+
 #include <string>
 #include <vector>
 
@@ -14,6 +16,7 @@ private:
     std::vector<std::string> passagierListe;
 public:
     Drachenflug();
+    Drachenflug(const nlohmann::json& j);
     ~Drachenflug();
     void flugDatenAnzeigen();
     void addPassagier();

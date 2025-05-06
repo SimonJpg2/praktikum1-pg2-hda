@@ -1,0 +1,88 @@
+[
+    {
+        "drachenName": "OhneZahn",
+        "meinPlayer": "Hicks",
+        "geschwindigkeit": 160.5,
+        "ausdauer": 6.5,
+        "erholung": 1.75,
+        "drachenPreis": 5100.0,
+        "drachenArt": "Nachtschatten",
+        "drachenflugListe": [
+            {
+                "flugNummer": 10000,
+                "ziel": "Dracheninsel",
+                "entfernung": 934.0,
+                "ladung": 0.0,
+                "passagiere": ["Haudrauf"]
+            },
+            {
+                "flugNummer": 10002,
+                "ziel": "Valhalla-Insel",
+                "entfernung": 851.2,
+                "ladung": 0.0,
+                "passagiere": ["Fischbein", "Rotzbakke"]
+            }
+        ]
+    },
+    {
+        "drachenName": "SturmPfeil",
+        "meinPlayer": "Astrid",
+        "geschwindigkeit": 140.8,
+        "ausdauer": 9.5,
+        "erholung": 1.5,
+        "drachenPreis": 3750.0,
+        "drachenArt": "ToedlicherNadder",
+        "drachenflugListe": [
+            {
+                "flugNummer": 10001,
+                "ziel": "HelheimsTor",
+                "entfernung": 763.4,
+                "ladung": 0.0,
+                "passagiere": []
+            },
+            {
+                "flugNummer": 10003,
+                "ziel": "Eisfestung",
+                "entfernung": 410.2,
+                "ladung": 0.0,
+                "passagiere": ["Hicks", "Astrid"]
+            }
+        ]
+    },
+    {
+        "drachenName": "Donnerklaue",
+        "meinPlayer": "Rotzbakke",
+        "geschwindigkeit": 193.9,
+        "ausdauer": 7.25,
+        "erholung": 3.5,
+        "drachenPreis": 4200.0,
+        "drachenArt": "Skrill",
+        "drachenflugListe": [
+            {
+                "flugNummer": 10004,
+                "ziel": "Donnergipfel",
+                "entfernung": 601.7,
+                "ladung": 0.0,
+                "passagiere": ["Raffnuss", "Taffnuss"]
+            }
+        ]
+    },
+    {
+        "drachenName": "LightFury",
+        "meinPlayer": "Astrid",
+        "geschwindigkeit": 174.4,
+        "ausdauer": 8.75,
+        "erholung": 2.25,
+        "drachenPreis": 3500.0,
+        "drachenArt": "Tagschatten",
+        "drachenflugListe": [
+            {
+                "flugNummer": 10005,
+                "ziel": "Berk",
+                "entfernung": 120.8,
+                "ladung": 0.0,
+                "passagiere": ["Hicks"]
+            }
+        ]
+    }
+]

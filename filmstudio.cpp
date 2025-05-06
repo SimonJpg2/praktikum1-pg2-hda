@@ -4,8 +4,12 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <fstream>
 
-Filmstudio::Filmstudio() {}
+Filmstudio::Filmstudio()
+{
+    einlesenJSON("filmstudio.json");
+}
 
 Filmstudio::~Filmstudio()
 {
@@ -113,5 +117,40 @@ Drache* Filmstudio::auswahlDrachenArt() {
         }
     } while (pD == nullptr);
     return pD;
+}
+
+void Filmstudio::einlesenJSON(const std::string &filename)
+{
+    std::ifstream in(filename);
+    if (!in.is_open()) {
+        std::cerr << "Konnte Datei " << filename << " nicht öffnen. Leere Liste wird verwendet." << std::endl;
+        return;
+    }
+
+    nlohmann::json j;
+    in >> j; // gesamtes JSON aus Datei lesen
+
+    for (auto& drache_json : j) {
+        std::string art = drache_json["drachenArt"];
+        Drache* d = nullptr;
+
+        // Entsprechend der Drachenart ein Objekt der richtigen Unterklasse erzeugen
+        if (art == "Nachtschatten")
+            d = new Nachtschatten(drache_json);
+        else if (art == "Tagschatten")
+            d = new Tagschatten(drache_json);
+        else if (art == "ToedlicherNadder")
+            d = new ToedlicherNadder(drache_json);
+        else if (art == "Skrill")
+            d = new Skrill(drache_json);
+        else {
+            std::cerr << "Unbekannte Drachenart: " << art << " – Drache wird übersprungen." << std::endl;
+            continue; // diesen Eintrag überspringen
+        }
+
+        drachenListe.push_back(d); // Drachen zur Liste hinzufügen
+    }
+
+    std::cout << "Daten wurden erfolgreich geladen aus " << filename << std::endl;
 }
 

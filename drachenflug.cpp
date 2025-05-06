@@ -18,6 +18,20 @@ Drachenflug::Drachenflug()
     std::cout << "Die Drachenreise wurde erfolgreich erstellt." << std::endl;
 }
 
+Drachenflug::Drachenflug(const nlohmann::json &j)
+{
+    this->flugNummer = j["flugNummer"];
+
+    if (this->flugNummer > naechsteNummer)
+        naechsteNummer = this->flugNummer;
+    naechsteNummer++;
+
+    this->ziel = j["ziel"];
+    this->entfernung = j["entfernung"];
+    this->ladung = j["ladung"];
+    this->passagierListe = j["passagiere"].get<std::vector<std::string>>();
+}
+
 Drachenflug::~Drachenflug()
 {
 
