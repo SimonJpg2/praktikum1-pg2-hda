@@ -67,6 +67,19 @@ double Drachenflug::getReisedauer() const
     return 0;
 }
 
+nlohmann::json Drachenflug::to_json()
+{
+    nlohmann::json j;
+
+    j["flugNummer"] = this->flugNummer;
+    j["ziel"] = this->ziel;
+    j["entfernung"] = this->entfernung;
+    j["ladung"] = this->ladung;
+    j["passagiere"] = this->passagierListe;
+
+    return j;
+}
+
 int Drachenflug::getFlugNummer() const
 {
     return this->flugNummer;

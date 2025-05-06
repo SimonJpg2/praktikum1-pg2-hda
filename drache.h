@@ -32,6 +32,7 @@ public:
     double getErholung() const;
     double getDrachenPreis() const;
     virtual std::string getDrachenArt() const;
+    nlohmann::json to_json();
 };
 
 #endif // DRACHE_H

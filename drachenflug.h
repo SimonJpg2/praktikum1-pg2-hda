@@ -22,6 +22,7 @@ public:
     void addPassagier();
     int getFlugNummer() const;
     double getReisedauer() const;
+    nlohmann::json to_json();
 };
 
 #endif // DRACHENFLUG_H

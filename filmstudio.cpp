@@ -29,6 +29,7 @@ void Filmstudio::dialog() {
         std::cout << "2: Drachenflug hinzufuegen" << std::endl;
         std::cout << "3: Passagier buchen" << std::endl;
         std::cout << "4: Alle Drachen anzeigen" << std::endl;
+        std::cout << "5: Speichern als JSON" << std::endl;
         std::cout << "0: Programm beenden" << std::endl;
 
         std::cin >> eingabe;
@@ -65,6 +66,11 @@ void Filmstudio::dialog() {
                         std::cout << "------------------------------------------------------------------" << std::endl;
                     }
                 }
+            } break;
+
+            case '5': {
+                speichernJSON("filmstudio.json");
+                std::cout << "Der aktuelle Stand wurde gespeichert." << std::endl;
             } break;
 
             case '0': return;
@@ -152,5 +158,20 @@ void Filmstudio::einlesenJSON(const std::string &filename)
     }
 
     std::cout << "Daten wurden erfolgreich geladen aus " << filename << std::endl;
+}
+
+void Filmstudio::speichernJSON(const std::string &filename)
+{
+    nlohmann::json jsonList;
+    std::ofstream outputStream(filename);
+
+    for (auto& drache : this->drachenListe)
+        jsonList.push_back(drache->to_json());
+
+    if (!outputStream)
+        std::cerr << "JSON Datei konnte nicht geoeffnet werden." << std::endl;
+
+    outputStream << jsonList.dump(4) << std::endl;
+    outputStream.close();
 }
 

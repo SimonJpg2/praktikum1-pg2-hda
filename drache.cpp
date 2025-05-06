@@ -28,6 +28,22 @@ std::string Drache::getDrachenArt() const
     return drachenArt;
 }
 
+nlohmann::json Drache::to_json()
+{
+    nlohmann::json j;
+    j["drachenName"] = this->drachenName;
+    j["meinPlayer"] = this->meinPlayer;
+    j["geschwindigkeit"] = this->geschwindigkeit;
+    j["ausdauer"] = this->ausdauer;
+    j["erholung"] = this->erholung;
+    j["drachenPreis"] = this->drachenPreis;
+    j["drachenArt"] = this->getDrachenArt();
+
+    for (auto& f : this->drachenflugListe)
+        j["drachenflugListe"].push_back(f->to_json());
+    return j;
+}
+
 Drache::Drache()
 {
     std::cout << "Name des Drachen: ";

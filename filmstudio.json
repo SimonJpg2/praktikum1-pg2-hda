@@ -1,88 +1,121 @@
 [
     {
-        "drachenName": "OhneZahn",
-        "meinPlayer": "Hicks",
-        "geschwindigkeit": 160.5,
         "ausdauer": 6.5,
-        "erholung": 1.75,
-        "drachenPreis": 5100.0,
         "drachenArt": "Nachtschatten",
+        "drachenName": "OhneZahn",
+        "drachenPreis": 5100.0,
         "drachenflugListe": [
             {
-                "flugNummer": 10000,
-                "ziel": "Dracheninsel",
                 "entfernung": 934.0,
+                "flugNummer": 10000,
                 "ladung": 0.0,
-                "passagiere": ["Haudrauf"]
+                "passagiere": [
+                    "Haudrauf"
+                ],
+                "ziel": "Dracheninsel"
             },
             {
-                "flugNummer": 10002,
-                "ziel": "Valhalla-Insel",
                 "entfernung": 851.2,
+                "flugNummer": 10002,
                 "ladung": 0.0,
-                "passagiere": ["Fischbein", "Rotzbakke"]
+                "passagiere": [
+                    "Fischbein",
+                    "Rotzbakke"
+                ],
+                "ziel": "Valhalla-Insel"
             }
-        ]
+        ],
+        "erholung": 1.75,
+        "geschwindigkeit": 160.5,
+        "meinPlayer": "Hicks"
     },
     {
-        "drachenName": "SturmPfeil",
-        "meinPlayer": "Astrid",
-        "geschwindigkeit": 140.8,
         "ausdauer": 9.5,
-        "erholung": 1.5,
-        "drachenPreis": 3750.0,
         "drachenArt": "ToedlicherNadder",
+        "drachenName": "SturmPfeil",
+        "drachenPreis": 3750.0,
         "drachenflugListe": [
             {
-                "flugNummer": 10001,
-                "ziel": "HelheimsTor",
                 "entfernung": 763.4,
+                "flugNummer": 10001,
                 "ladung": 0.0,
-                "passagiere": []
+                "passagiere": [],
+                "ziel": "HelheimsTor"
             },
             {
-                "flugNummer": 10003,
-                "ziel": "Eisfestung",
                 "entfernung": 410.2,
+                "flugNummer": 10003,
                 "ladung": 0.0,
-                "passagiere": ["Hicks", "Astrid"]
+                "passagiere": [
+                    "Hicks",
+                    "Astrid"
+                ],
+                "ziel": "Eisfestung"
             }
-        ]
+        ],
+        "erholung": 1.5,
+        "geschwindigkeit": 140.8,
+        "meinPlayer": "Astrid"
     },
     {
-        "drachenName": "Donnerklaue",
-        "meinPlayer": "Rotzbakke",
-        "geschwindigkeit": 193.9,
         "ausdauer": 7.25,
-        "erholung": 3.5,
-        "drachenPreis": 4200.0,
         "drachenArt": "Skrill",
+        "drachenName": "Donnerklaue",
+        "drachenPreis": 4200.0,
         "drachenflugListe": [
             {
-                "flugNummer": 10004,
-                "ziel": "Donnergipfel",
                 "entfernung": 601.7,
+                "flugNummer": 10004,
                 "ladung": 0.0,
-                "passagiere": ["Raffnuss", "Taffnuss"]
+                "passagiere": [
+                    "Raffnuss",
+                    "Taffnuss"
+                ],
+                "ziel": "Donnergipfel"
             }
-        ]
+        ],
+        "erholung": 3.5,
+        "geschwindigkeit": 193.9,
+        "meinPlayer": "Rotzbakke"
     },
     {
-        "drachenName": "LightFury",
-        "meinPlayer": "Astrid",
-        "geschwindigkeit": 174.4,
         "ausdauer": 8.75,
-        "erholung": 2.25,
-        "drachenPreis": 3500.0,
         "drachenArt": "Tagschatten",
+        "drachenName": "LightFury",
+        "drachenPreis": 3500.0,
         "drachenflugListe": [
             {
-                "flugNummer": 10005,
-                "ziel": "Berk",
                 "entfernung": 120.8,
+                "flugNummer": 10005,
                 "ladung": 0.0,
-                "passagiere": ["Hicks"]
+                "passagiere": [
+                    "Hicks"
+                ],
+                "ziel": "Berk"
             }
-        ]
+        ],
+        "erholung": 2.25,
+        "geschwindigkeit": 174.4,
+        "meinPlayer": "Astrid"
+    },
+    {
+        "ausdauer": 4.5,
+        "drachenArt": "Nachtschatten",
+        "drachenName": "Drache A",
+        "drachenPreis": 5100.0,
+        "drachenflugListe": [
+            {
+                "entfernung": 1400.0,
+                "flugNummer": 10007,
+                "ladung": 0.0,
+                "passagiere": [
+                    "Musterpassagier"
+                ],
+                "ziel": "Musterziel"
+            }
+        ],
+        "erholung": 1.75,
+        "geschwindigkeit": 160.0,
+        "meinPlayer": "Player A"
     }
 ]
