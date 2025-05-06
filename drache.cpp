@@ -1,10 +1,37 @@
 #include "drache.h"
 
 #include <iostream>
+#include <limits>
+
+double Drache::getGeschwindigkeit() const
+{
+    return geschwindigkeit;
+}
+
+double Drache::getAusdauer() const
+{
+    return ausdauer;
+}
+
+double Drache::getErholung() const
+{
+    return erholung;
+}
+
+double Drache::getDrachenPreis() const
+{
+    return drachenPreis;
+}
+
+std::string Drache::getDrachenArt() const
+{
+    return drachenArt;
+}
 
 Drache::Drache()
 {
     std::cout << "Name des Drachen: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Puffer leeren, da sonst nächstes getLine() übersprungen wird.
     std::getline(std::cin, this->drachenName); // Eingabe ohne Leerzeichen
 
     std::cout << "Mein Player: ";
@@ -12,6 +39,12 @@ Drache::Drache()
 
     //Ausgabe zur Bestätigung
     std::cout << "\n\nName des Drachen: " << this->drachenName << " \nMein Player: " << this->meinPlayer << std::endl;
+}
+
+Drache::~Drache()
+{
+    for (auto p_drachenflug : this->drachenflugListe)
+        delete p_drachenflug;
 }
 
 void Drache::drachenflugHinzufuegen()
@@ -40,7 +73,14 @@ void Drache::passagierBuchen()
 
 void Drache::dracheAnzeigen()
 {
-    std::cout << "Drache " << this->getDrachenName() << " von " << this->meinPlayer << ":\n\n";
+    std::cout << "Drache " << this->getDrachenName()
+              << " von " << this->meinPlayer
+              << ":  " << this->geschwindigkeit
+              << " km/h, Ausdauer=" << this->ausdauer
+              << ", Erholung=" << this->erholung
+              << ", Preis=" << this->drachenPreis
+              << "\n\n";
+
     for (auto p_drachenflug : this->drachenflugListe)
         p_drachenflug->flugDatenAnzeigen();
 }

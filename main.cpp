@@ -2,7 +2,9 @@
 
 int main()
 {
-    Filmstudio studio;
-    studio.dialog();
+    Filmstudio* studio = new Filmstudio();
+    studio->dialog();
+
+    delete studio;
     return 0;
 }

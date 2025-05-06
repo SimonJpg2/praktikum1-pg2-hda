@@ -1,21 +1,26 @@
 #include "drachenflug.h"
 
 #include <iostream>
-#include <limits>
+
+inline static int naechsteNummer = 10000;
 
 Drachenflug::Drachenflug()
 {
-    std::cout << "Flugnummmer? ";
-    std::cin >> this->flugNummer;
+    this->flugNummer = naechsteNummer;
+    naechsteNummer++;
 
     std::cout << "Ziel? ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Puffer leeren, da sonst nächstes getLine() übersprungen wird.
     std::getline(std::cin, this->ziel);
 
     std::cout << "Entfernung der Reise angeben: ";
     std::cin >> this->entfernung;
 
     std::cout << "Die Drachenreise wurde erfolgreich erstellt." << std::endl;
+}
+
+Drachenflug::~Drachenflug()
+{
+
 }
 
 void Drachenflug::flugDatenAnzeigen()
@@ -27,9 +32,10 @@ void Drachenflug::flugDatenAnzeigen()
               << "\nLadung: " << this->ladung
               << std::endl;
 
-    std::cout << "[Passagiere]" << std::endl;
+    std::cout << "\n[Passagiere]" << std::endl;
     for (auto passagier : this->passagierListe)
         std::cout << "Name des Passagiers: " << passagier << std::endl;
+    std::cout << "\n";
 }
 
 void Drachenflug::addPassagier()

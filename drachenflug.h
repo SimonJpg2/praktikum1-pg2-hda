@@ -14,6 +14,7 @@ private:
     std::vector<std::string> passagierListe;
 public:
     Drachenflug();
+    ~Drachenflug();
     void flugDatenAnzeigen();
     void addPassagier();
     int getFlugNummer() const;

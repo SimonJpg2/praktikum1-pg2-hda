@@ -1,10 +1,18 @@
 #include "filmstudio.h"
+#include "drachenart.h"
 
 #include <iostream>
 #include <string>
 #include <limits>
 
 Filmstudio::Filmstudio() {}
+
+Filmstudio::~Filmstudio()
+{
+    for (auto p_drache : this->drachenListe)
+        delete p_drache;
+    std::cout << "Eywa hat dich erhoert!" << std::endl;
+}
 
 void Filmstudio::dialog() {
 
@@ -24,7 +32,7 @@ void Filmstudio::dialog() {
 
         switch (eingabe){
             case '1': {         // Aufgabe 1e: Drache hinzufuegen
-                Drache* p_drache = new Drache();
+                Drache* p_drache = auswahlDrachenArt();
                 this->drachenListe.push_back(p_drache);
             } break;
 
@@ -74,3 +82,36 @@ Drache *Filmstudio::sucheDrache()
     std::cout << "Der Drache mit dem Namen " << name << " konnte nicht gefunden werden." << std::endl;
     return nullptr;
 }
+
+// ********************************* Aufgabe 2c *********************************
+
+Drache* Filmstudio::auswahlDrachenArt() {
+    Drache* pD;
+    char eingabe;
+
+    do{
+        std::cout << "Drachenart?" << std::endl;
+        std::cout << "a: Nachtschatten" << std::endl;
+        std::cout << "b: Tagschatten" << std::endl;
+        std::cout << "c: ToedlicherNadder" << std::endl;
+        std::cout << "d: Skrill" << std::endl;
+
+        std::cin >> eingabe;
+
+        switch (eingabe) {
+            case 'a': case 'A':
+                pD = new Nachtschatten(); break;
+            case 'b': case 'B':
+                pD = new Tagschatten(); break;
+            case 'c': case 'C':
+                pD = new ToedlicherNadder(); break;
+            case 'd': case 'D':
+                pD = new Skrill(); break;
+            default:
+                pD = nullptr;
+                std::cout << "Ungueltige Eingabe, bitte erneut eingeben" << std::endl;
+        }
+    } while (pD == nullptr);
+    return pD;
+}
+

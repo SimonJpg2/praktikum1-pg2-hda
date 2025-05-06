@@ -11,8 +11,10 @@ private:
     std::vector<Drache*> drachenListe;
 public:
     Filmstudio();
+    ~Filmstudio();
     void dialog();
     Drache* sucheDrache();
+    Drache* auswahlDrachenArt();
 };
 
 #endif // FILMSTUDIO_H
